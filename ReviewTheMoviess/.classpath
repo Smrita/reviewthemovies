@@ -27,5 +27,6 @@
 	<classpathentry kind="lib" path="/opt/apache-tomcat-7.0.37/lib/tomcat-i18n-ja.jar"/>
 	<classpathentry kind="lib" path="/opt/apache-tomcat-7.0.37/lib/tomcat-jdbc.jar"/>
 	<classpathentry kind="lib" path="/opt/apache-tomcat-7.0.37/lib/tomcat-util.jar"/>
+	<classpathentry kind="lib" path="/opt/apache-tomcat-7.0.37/lib/mysql-connector-java-5.1.24-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
