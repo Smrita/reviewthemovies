@@ -2,31 +2,31 @@ package auth.model.dto;
 
 public class User
 {
-	 private int id=-1;
-     private String email;
+	
+     private String userName;
      private String country;
      private String password;
      private String firstName;
      private String lastName;
+     private String email;
      
-	 public int getId() 
-	{
-		return id;
-	}
 	 
-	public void setId(int id) 
-	{
-		this.id = id;
-	}
+
 	
-	public String getEmail() 
-	{
+	public String getEmail() {
 		return email;
 	}
-	
-	public void setEmail(String email)
-	{
+
+	public void setEmail(String email) {
 		this.email = email;
+	}
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	
 	public String getCountry()

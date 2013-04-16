@@ -11,5 +11,6 @@
 <body>
 <%! User user=new User(); %>
 Welcome this is home
+
 </body>
 </html>

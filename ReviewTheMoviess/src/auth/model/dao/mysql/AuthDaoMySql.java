@@ -4,10 +4,11 @@ import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import auth.model.dao.AuthDao;
 import auth.model.dto.User;
 import common.dao.BaseDao;
 
-public class AuthDaoMySql extends BaseDao 
+public class AuthDaoMySql extends BaseDao implements AuthDao
 {
 	User user=null;
 	
@@ -82,7 +83,7 @@ public class AuthDaoMySql extends BaseDao
     	while(resultSet.next())
 		{
 			user=new User();
-			user.setId(resultSet.getInt("id"));
+		
 			user.setFirstName(resultSet.getString("firstname"));
 			user.setLastName(resultSet.getString("lastname"));
 			user.setEmail(resultSet.getString("email"));
@@ -95,7 +96,7 @@ public class AuthDaoMySql extends BaseDao
     
     private void checkUser(String email,String password) throws SQLException, ClassNotFoundException
     {
-    	query="SELECT * FROM user where email=? AND password=?";
+    	query="SELECT * FROM users where email=? AND password=?";
     	preparedStatement = connection.prepareStatement(query);
 		preparedStatement.setString(1, email);
 		preparedStatement.setString(2, password);
@@ -123,5 +124,6 @@ public class AuthDaoMySql extends BaseDao
 			e.printStackTrace();
 		}
     }
-   
+
+	
 }

@@ -6,5 +6,5 @@ public interface AuthDao
 {
 
 	User login(String username, String password) throws Exception;
-	User signup(String firstname,String lastname, String username, String password) throws Exception;
+	User signUp(String firstName,String lastName,String email,String password,String country) throws Exception;
 }

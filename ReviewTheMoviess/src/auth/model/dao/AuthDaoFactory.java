@@ -1,5 +1,11 @@
 package auth.model.dao;
 
-public class AuthDaoFactory {
+import auth.model.dao.mysql.AuthDaoMySql;
 
+public class AuthDaoFactory 
+{
+  public static AuthDao getAuthDao() throws Exception
+  {
+	return new AuthDaoMySql();  
+  }
 }

@@ -38,7 +38,7 @@ public class EntryValidator implements Filter
 		{
 //			loggedIn=true;
 			System.out.println("from session set");
-			response.sendRedirect("home.jsp");
+			response.sendRedirect("home");
 		}
 		else
 		{

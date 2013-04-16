@@ -11,13 +11,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import auth.model.dao.AuthDao;
+import auth.model.dao.AuthDaoFactory;
 import auth.model.dao.mysql.AuthDaoMySql;
 import auth.model.dto.User;
 
 public class LoginInValidator extends HttpServlet
 {
 
-	protected AuthDaoMySql dao;
+	protected AuthDao dao;
 	protected User user;
 	protected String email;
 	protected String password;
@@ -28,12 +30,19 @@ public class LoginInValidator extends HttpServlet
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
 	{
 		
-		dao=new AuthDaoMySql();
+		try {
+			dao=AuthDaoFactory.getAuthDao();
+		} catch (Exception e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		user=new User();
 		email=request.getParameter("email");
 		password=request.getParameter("password");
+		
 		String rememberme=request.getParameter("rememberMe");
-		int id = -1;
+//		int id = -1;
+		String userEmail = null;
 		
 //		if(rememberme.matches("true"))
 //		{
@@ -44,9 +53,10 @@ public class LoginInValidator extends HttpServlet
 		
 		try 
 		{
+		    System.out.println("email is "+email);	
 			user=dao.login(email, password);
-			id=user.getId();
-			
+			userEmail=user.getEmail();
+			System.out.println("userName is"+userEmail);
 			
 			
 		} catch (Exception e) {
@@ -54,14 +64,14 @@ public class LoginInValidator extends HttpServlet
 			e.printStackTrace();
 		}
 		
-		if(id>0)
+		if(userEmail!=null)
 		{
 			
 			session=request.getSession(true);
 			session.setAttribute("user", user);
 			
 			RequestDispatcher dispatcher=request.getRequestDispatcher("pages/home.jsp");
-		dispatcher.forward(request, response);
+		    dispatcher.forward(request, response);
 			
 		}
 		else
