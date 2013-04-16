@@ -21,19 +21,19 @@
        <filter-name>entryvalidator</filter-name>
        <servlet-name>login</servlet-name>
        <servlet-name>signup</servlet-name>
-       <servlet-name>welcome</servlet-name>
+       <servlet-name>index</servlet-name>
        
        <dispatcher>REQUEST</dispatcher>
   </filter-mapping>
   
   <servlet>
-     <servlet-name>welcome</servlet-name>
-     <servlet-class>auth.controller.WelcomeServlet</servlet-class>
+     <servlet-name>index</servlet-name>
+     <servlet-class>auth.controller.Index</servlet-class>
   </servlet>
   
   <servlet-mapping>
-      <servlet-name>welcome</servlet-name>
-      <url-pattern>/welcome</url-pattern>
+      <servlet-name>index</servlet-name>
+      <url-pattern>/index</url-pattern>
   </servlet-mapping>
  
  <servlet>

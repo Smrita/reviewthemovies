@@ -11,6 +11,17 @@
 <body>
 <%! User user=new User(); %>
 Welcome this is home
+<form action="index" method="get">
+   <% 
+//        HttpSession ses=request.getSession(false);
+//        ses.setAttribute("logout", "true");
+
+      HttpSession ses=request.getSession(false);
+    		  ses.invalidate();
+   
+   %>
+<input type="submit" value="logout" name="logout">  
+</form>
 
 </body>
 </html>
