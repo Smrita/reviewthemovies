@@ -31,8 +31,13 @@ public class EntryValidator implements Filter
 		HttpSession session=request.getSession(false);
 		int count=1;
 		
-//		boolean loggedIn=false;
-		
+//
+//		if(session.getAttribute("logout")!=null)
+//		{
+//			System.out.println("invalidating ...");
+//			session.invalidate();
+//			
+//		}
 		
 		if(session!=null&&session.getAttribute("user")!=null)
 		{
@@ -43,19 +48,23 @@ public class EntryValidator implements Filter
 		else
 		{
 //			response.sendRedirect("pages/index.jsp");
+			System.out.println("from session not set");
 			chain.doFilter(req, res);
 		}
 		
 		System.out.println("from filter count"+count);
-		count++;
+//		count++;
 		
 //		chain.doFilter(request, response);
 		
 	}
 
 	@Override
-	public void init(FilterConfig arg0) throws ServletException {
-		// TODO Auto-generated method stub
+	public void init(FilterConfig arg0) throws ServletException 
+	{
+		
+		
+		
 		
 	}
 

@@ -16,7 +16,7 @@ import auth.model.dao.AuthDaoFactory;
 import auth.model.dao.mysql.AuthDaoMySql;
 import auth.model.dto.User;
 
-public class LoginInValidator extends HttpServlet
+public class Login extends HttpServlet
 {
 
 	protected AuthDao dao;
@@ -26,6 +26,15 @@ public class LoginInValidator extends HttpServlet
 	protected Boolean rememberMe=false;
 	protected HttpSession session;
 	protected HttpCookie cookie;
+	
+	public void doGet(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
+	{
+	  
+	
+  	  RequestDispatcher dispatcher=request.getRequestDispatcher("pages/auth/login.jsp");
+  	  dispatcher.forward(request, response);
+	
+	}
 	
 	public void doPost(HttpServletRequest request,HttpServletResponse response) throws IOException, ServletException
 	{
@@ -67,20 +76,21 @@ public class LoginInValidator extends HttpServlet
 		if(userEmail!=null)
 		{
 			
+			System.out.println("session set email"+userEmail);
 			session=request.getSession(true);
 			session.setAttribute("user", user);
 			
-			RequestDispatcher dispatcher=request.getRequestDispatcher("pages/home.jsp");
+			RequestDispatcher dispatcher=request.getRequestDispatcher("home");
 		    dispatcher.forward(request, response);
 			
 		}
 		else
 		{
-			response.sendRedirect("pages/index.jsp");
+			response.sendRedirect("login");
 		}
 		
-		/*response.setContentType("text/html");
-		PrintWriter out=response.getWriter();
-		out.println("hello");*/
+	
 	}
+	
+	
 }

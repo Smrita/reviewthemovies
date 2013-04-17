@@ -1,6 +1,6 @@
 package auth.controller;
 
-public class SignUpValidator
+public class SignUp
 {
 
 }

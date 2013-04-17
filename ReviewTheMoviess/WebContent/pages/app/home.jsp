@@ -9,17 +9,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%! User user=new User(); %>
-Welcome this is home
-<form action="index" method="get">
-   <% 
-//        HttpSession ses=request.getSession(false);
-//        ses.setAttribute("logout", "true");
 
-      HttpSession ses=request.getSession(false);
-    		  ses.invalidate();
-   
-   %>
+Welcome this is home
+<form action="logout" method="get">
+
 <input type="submit" value="logout" name="logout">  
 </form>
 
