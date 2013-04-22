@@ -12,6 +12,7 @@
 <form action="login" method="post">
 Email<input type="text" name="email"/>
 Password<input type="password" name="password"/>
+<input type="checkbox" name="rememberMe" value="true">Remember Me
 <input type="submit" value="login">
 
 </form>

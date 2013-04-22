@@ -8,11 +8,32 @@ public class User
      private String password;
      private String firstName;
      private String lastName;
-     private String email;
+     private String middleName;
+ 	private String email;
+     public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+
      
 	 
+public User()
+{
+}
 
-	
+public User(String firstName,String middleName,String lastName,String email,String password,String country)
+{
+	setFirstName(firstName);
+	setMiddleName(middleName);
+	setLastName(lastName);
+	setEmail(email);
+	setCountry(country);
+	setPassword(password);
+}
 	public String getEmail() {
 		return email;
 	}
